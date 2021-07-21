@@ -1,5 +1,3 @@
 # DeepLearnGo
 
-## 问题1
-
-## 问题2
+深入学习goalng
