@@ -1,3 +1,3 @@
 # DeepLearnGo
 
-深入学习goalng
+深入学习golang
