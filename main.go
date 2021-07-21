@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"githu.com/Lngenuus/DeepLearnGO/src/geek/class2"
+	"github.com/Lngenuus/DeepLearnGo/src/geek/class2"
 )
 
 func geekOption(geek string) {
