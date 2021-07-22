@@ -13,9 +13,12 @@
 ```golang
 // 自定义错误内容 抛出异常
 return "", xerrors.Wrapf(err, fmt.Sprintf("[queryName1ById] 信息查询失败, id=%v\n", id))
+```
 
-// 业务处理层选择是否打印错误 同时查看错误类型
-// 错误详细信息输出
+业务处理层自定义是否输出和处理错误:
+
+```golang
+// 默认输出错误详细信息输出
 fmt.Printf("错误信息为:\n%+v\n", err)
 
 // 根据业务需要执行对应的错误处理
@@ -24,6 +27,9 @@ if errors.Is(err, sql.ErrNoRows) {
 }
 ```
 
-[代码例子如下](./class2.go)
+[点击代码内容](./class2.go)
 
-> 该单例可以运行
+> 该单例可以运行 根目录运行以下命令：
+```sh
+go run main -geek class2
+```
