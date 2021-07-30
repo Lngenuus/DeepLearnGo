@@ -5,12 +5,15 @@ import (
 	"fmt"
 
 	"github.com/Lngenuus/DeepLearnGo/src/geek/class2"
+	"github.com/Lngenuus/DeepLearnGo/src/geek/class3"
 )
 
 func geekOption(geek string) {
 	switch geek {
 	case "class2":
 		class2.Run()
+	case "class3":
+		class3.NewApp()
 	default:
 		fmt.Printf("选择执行单元[%s]不存在\n", geek)
 	}
