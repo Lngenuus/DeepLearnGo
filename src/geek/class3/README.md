@@ -8,13 +8,15 @@
 
 参考kratos的设计:
 
-- 对服务的启动进行接口抽象用来满足同时启动多个服务的需要
+- 对服务进行接口抽象用来满足同时启动多个服务的需要
 
-- 通过waitGroup确保服务启动成功
+- 使用WaitGroup的计数和等待机制确保全部的服务执行启动
 
-- 通过errorGroup实现上下文的全部goroutine优雅退出
+- 全部的goroutine都是调用errorgroup中的GO方法创建
 
-- 监听系统信号调用errorGroup生成的上下文
+- 通过errorgroup启动的goroutine和上下文来优雅的退出全部goroutine
+
+- 监听系统信号调用上下文取消优雅的退出
 
 # [作业代码](./class3.go)
 

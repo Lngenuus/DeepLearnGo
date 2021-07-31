@@ -59,6 +59,7 @@ func (a *App) Run() error {
 	for _, svr := range a.svrs {
 		// 赋值问题
 		s := svr
+		// 通过上下文 cancel 实现监听退出的信号
 		eg.Go(func() error {
 			<-ctx.Done()
 			return s.Stop(ctx)
