@@ -36,7 +36,7 @@ func (hs *HttpServer) Stop(ctx context.Context) error {
 	return hs.Shutdown(ctx)
 }
 
-type keyApp struct{}
+type appKey struct{}
 
 type App struct {
 	// svrs 可以启用多个http server
@@ -48,8 +48,8 @@ type App struct {
 
 // Run 启动应用
 func (a *App) Run() error {
-	// 局部变量作为key来确保全局不冲突
-	ctx := context.WithValue(a.ctx, keyApp{}, a)
+	// 局部变量作为key来确保全局唯一标识
+	ctx := context.WithValue(a.ctx, appKey{}, a)
 
 	// errorgroup 的特性确保全部的 goroutine 退出
 	eg, ctx := errgroup.WithContext(ctx)
@@ -96,6 +96,7 @@ func (a *App) Run() error {
 // Quit 优雅退出应用
 func (a *App) Quit() error {
 	if a.cancel != nil {
+		// 实际调用根节上下文取消函数
 		a.cancel()
 	}
 	fmt.Println("已经安全退出!")
