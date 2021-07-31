@@ -7,3 +7,5 @@ go run main.go -geek classX
 ```
 
 ## [课后作业2](./class2/README.md)
+
+## [课后作业3](./class3/README.md)

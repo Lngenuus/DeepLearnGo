@@ -59,7 +59,6 @@ func (a *App) Run() error {
 	for _, svr := range a.svrs {
 		// 赋值问题
 		s := svr
-		fmt.Printf("SVR %v\n", s)
 		eg.Go(func() error {
 			<-ctx.Done()
 			return s.Stop(ctx)
@@ -87,7 +86,7 @@ func (a *App) Run() error {
 			return a.Quit()
 		}
 	})
-	// 当有错误返回且错误为上下文取消的时候意味着是接收到退出信号
+	// 当有错误返回且错误为上下文取消的时候意味着是接收到退出信号 否则抛出异常错误
 	if err := eg.Wait(); err != nil && !errors.Is(err, context.Canceled) {
 		return err
 	}
@@ -103,6 +102,7 @@ func (a *App) Quit() error {
 	return nil
 }
 
+// NewApp 简单的demo启动创建
 func NewApp() {
 
 	//  启动两个http server
