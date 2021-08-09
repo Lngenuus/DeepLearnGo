@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package api.coin.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "coin/api/coin/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.coin.v1";
+
+service Coin {
+    rpc AddCoin (AddCoinRequest) returns (AddCoinReply) {
+        option (google.api.http) = {
+            post: "/v1/coin/add"
+            body: "*"
+        };
+    }
+    rpc ReduceCoin (ReduceCoinRequest) returns (ReduceCoinReply) {
+        option (google.api.http) = {
+            post: "/v1/coin/reduce"
+            body: "*"
+        };
+    }
+    rpc ShowCoin (ShowCoinRequest) returns (ShowCoinReply) {
+        option (google.api.http) = {
+            get: "/v1/coin/show"
+        };
+    }
+}
+
+message AddCoinRequest {
+    int64 num = 1;
+}
+message AddCoinReply {
+    string message = 1;
+}
+
+message ReduceCoinRequest {
+    int64 num = 1;
+}
+message ReduceCoinReply {
+    string message = 1;
+}
+
+message ShowCoinRequest {}
+message ShowCoinReply {
+    int64 amount = 1;
+    string message = 2;
+}
