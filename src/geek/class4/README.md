@@ -26,7 +26,9 @@
 
 > 示例代码为 coin 服务 提供http服务和grpc服务访问的方式 有三个接口 add reduce show 模拟添加、减少、展示硬币数量的功能
 
-<font color=#008000>启动命令:</font>
+> 该服务启动了 swagger-ui 可以通过swagger-ui 测试 addr: http://localhost:8000/q/swagger-ui
+
+<font color=”green“>启动命令:</font>
 
 ```sh
 # 根目录下执行
