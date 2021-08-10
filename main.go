@@ -17,6 +17,12 @@ func geekOption(geek string) {
 	case "class3":
 		class3.NewApp()
 	case "class4":
+		cmdBase := exec.Command("go", "get", "-u", "github.com/go-kratos/kratos/cmd/kratos/v2@latest")
+		cmdBase.Stdout = os.Stdout
+		cmdBase.Stderr = os.Stderr
+		if err := cmdBase.Run(); err != nil {
+			fmt.Println(err)
+		}
 		cmd := exec.Command("kratos", "run", "src/geek/class4/coin/cmd/coin")
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
