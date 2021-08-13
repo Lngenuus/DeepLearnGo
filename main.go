@@ -6,8 +6,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/Lngenuus/DeepLearnGo/src/geek/class2"
-	"github.com/Lngenuus/DeepLearnGo/src/geek/class3"
+	"github.com/dogslee/deep-learn-go/src/geek/class2"
+	"github.com/dogslee/deep-learn-go/src/geek/class3"
 )
 
 func geekOption(geek string) {
